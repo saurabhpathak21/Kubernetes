@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  creationTimestamp: null
+  name: pi2000
+spec:
+  template:
+    metadata:
+      creationTimestamp: null
+    spec:
+      containers:
+      - image: perl
+        name: pi2000
+        command: ["perl",  "-Mbignum=bpi", "-wle", "print bpi(2000)"]
+        resources: {}
+      restartPolicy: Never
+status: {}
