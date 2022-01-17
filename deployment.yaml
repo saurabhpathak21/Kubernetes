@@ -1,0 +1,65 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "1"
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{"deployment.kubernetes.io/revision":"1"},"creationTimestamp":"2021-12-30T19:52:41Z","generation":2,"name":"my-nginx","namespace":"devtest","resourceVersion":"86414","uid":"6e551a32-c2ad-4ee0-b502-a53017f11a0f"},"spec":{"progressDeadlineSeconds":600,"replicas":1,"revisionHistoryLimit":10,"selector":{"matchLabels":{"run":"my-nginx"}},"strategy":{"rollingUpdate":{"maxSurge":"25%","maxUnavailable":"25%"},"type":"RollingUpdate"},"template":{"metadata":{"creationTimestamp":null,"labels":{"run":"my-nginx"}},"spec":{"containers":[{"image":"nginx","imagePullPolicy":"Always","name":"my-nginx","ports":[{"containerPort":80,"protocol":"TCP"}],"resources":{},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File"}],"dnsPolicy":"ClusterFirst","restartPolicy":"Always","schedulerName":"default-scheduler","securityContext":{},"terminationGracePeriodSeconds":30}}},"status":{"availableReplicas":2,"conditions":[{"lastTransitionTime":"2021-12-30T19:52:41Z","lastUpdateTime":"2021-12-30T19:54:15Z","message":"ReplicaSet \"my-nginx-5b56ccd65f\" has successfully progressed.","reason":"NewReplicaSetAvailable","status":"True","type":"Progressing"},{"lastTransitionTime":"2022-01-04T18:59:56Z","lastUpdateTime":"2022-01-04T18:59:56Z","message":"Deployment has minimum availability.","reason":"MinimumReplicasAvailable","status":"True","type":"Available"}],"observedGeneration":2,"readyReplicas":2,"replicas":2,"updatedReplicas":2}}
+  creationTimestamp: "2021-12-30T19:52:41Z"
+  generation: 3
+  name: my-nginx
+  namespace: devtest
+  resourceVersion: "86478"
+  uid: 6e551a32-c2ad-4ee0-b502-a53017f11a0f
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      run: my-nginx
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        run: my-nginx
+    spec:
+      containers:
+      - image: nginx
+        imagePullPolicy: Always
+        name: my-nginx
+        ports:
+        - containerPort: 80
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: "2021-12-30T19:52:41Z"
+    lastUpdateTime: "2021-12-30T19:54:15Z"
+    message: ReplicaSet "my-nginx-5b56ccd65f" has successfully progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  - lastTransitionTime: "2022-01-04T18:59:56Z"
+    lastUpdateTime: "2022-01-04T18:59:56Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  observedGeneration: 3
+  readyReplicas: 1
+  replicas: 1
+  updatedReplicas: 1

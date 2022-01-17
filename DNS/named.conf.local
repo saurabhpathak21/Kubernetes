@@ -1,0 +1,4 @@
+zone "saurabh-dev-env.com" {
+    type master;
+    file "/etc/bind/zones/db.saurabh-dev-env.com";
+};

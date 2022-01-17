@@ -1,8 +1,4 @@
-# Kubernetes
-
-#To install the metrics server
-
-kubectl apply -f https://raw.githubusercontent.com/ACloudGuru-Resources/content-cka-resources/master/metrics-server-components.yaml 
+kubectl apply -f https://raw.githubusercontent.com/ACloudGuru-Resources/content-cka-resources/master/metrics-server-components.yaml #To install the metrics server
 kubectl get --raw /apis/metrics.k8s.io #To get the response of the APIs
 
 #to get the status 
